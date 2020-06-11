@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSAvroTools", "PSAvroTools\PSAvroTools.csproj", "{79DB89FC-BACA-4BF8-8BEF-55CBE66C533A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79DB89FC-BACA-4BF8-8BEF-55CBE66C533A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DB89FC-BACA-4BF8-8BEF-55CBE66C533A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DB89FC-BACA-4BF8-8BEF-55CBE66C533A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DB89FC-BACA-4BF8-8BEF-55CBE66C533A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7288825-57ED-4CD4-800F-DA671D29A3BA}
+	EndGlobalSection
+EndGlobal
