@@ -4,7 +4,7 @@ Powershell Cmdlets to work with Apache.Avro files
 Usage:
 Install-Module AvroTools (run as admin)
 
-Read-Avro -FileName c:\weather.avro
+Read-Avro -Path c:\weather.avro
 
     Result:
     station               time temp
@@ -16,13 +16,13 @@ Read-Avro -FileName c:\weather.avro
     012650-99999 -655509600000   78
 
 Filtering: 
-$r = Read-Avro -FileName c:\weather.avro
+$r = Read-Avro -Path c:\weather.avro
 $r | where {$_.name -like "012*"}
 
 Selecting first 10 rows:
-$r = Read-Avro -FileName c:\weather.avro
+$r = Read-Avro -Path c:\weather.avro
 $r | select -first 10
 
 Selecting specific columns:
-$r = Read-Avro -FileName c:\weather.avro
+$r = Read-Avro -Path c:\weather.avro
 $r | select station, temp
