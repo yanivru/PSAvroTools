@@ -7,11 +7,11 @@ namespace PSAvroTools
 {
     [Cmdlet(VerbsCommunications.Read, "Avro")]
     [OutputType(typeof(PSObject))]
-    public class ReadAvroCmdlet : Cmdlet
+    public class ReadAvroCmdlet : PSCmdlet
     {
         // Declare the parameters for the cmdlet.
-        [Parameter(Mandatory = true)]
-        public string FileName { get; set; }
+        [Parameter(Mandatory = true, Position = 0)]
+        public string Path { get; set; }
 
         // Override the ProcessRecord method to process
         // the supplied user name and write out a
@@ -19,7 +19,9 @@ namespace PSAvroTools
         // method.
         protected override void ProcessRecord()
         {
-            using (var fileReader = Avro.File.DataFileReader<GenericRecord>.OpenReader(FileName))
+            var resolvedPath = SessionState.Path.GetUnresolvedProviderPathFromPSPath(Path);
+
+            using (var fileReader = Avro.File.DataFileReader<GenericRecord>.OpenReader(resolvedPath))
             {
                 WriteObject(fileReader.NextEntries.Select(x => CreatePSObject(x)).ToArray());
             }
