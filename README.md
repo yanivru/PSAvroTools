@@ -1,2 +1,2 @@
 # PSAvroTools
-Powershell CmdLets to work with Apache.Avro files
+Powershell Cmdlets to work with Apache.Avro files
