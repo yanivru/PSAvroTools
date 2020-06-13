@@ -3,5 +3,5 @@
 ################################################################################
 
 /.vs
-/PSAvroTools/bin/Debug/netstandard2.0
+/PSAvroTools/bin/
 /PSAvroTools/obj
