@@ -23,7 +23,10 @@ namespace PSAvroTools
 
             using (var fileReader = Avro.File.DataFileReader<GenericRecord>.OpenReader(resolvedPath))
             {
-                WriteObject(fileReader.NextEntries.Select(x => CreatePSObject(x)).ToArray());
+                foreach (var psobj in fileReader.NextEntries.Select(x => CreatePSObject(x)))
+                {
+                    WriteObject(psobj);
+                }
             }
         }
 
