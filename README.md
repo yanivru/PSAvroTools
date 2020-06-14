@@ -26,3 +26,6 @@ $r | select -first 10
 Selecting specific columns:
 $r = Read-Avro -Path c:\weather.avro
 $r | select station, temp
+
+Reading the schema:
+(Read-AvroSchema -Path c:\weather.avro).ToString()
