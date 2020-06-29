@@ -10,7 +10,7 @@ namespace PSAvroTools
     public class ReadAvroCmdlet : PSCmdlet
     {
         // Declare the parameters for the cmdlet.
-        [Parameter(Mandatory = true, Position = 0)]
+        [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
         public string Path { get; set; }
 
         // Override the ProcessRecord method to process
