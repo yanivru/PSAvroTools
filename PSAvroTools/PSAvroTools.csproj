@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Apache.Avro" Version="1.9.2" />
+    <PackageReference Include="Apache.Avro" Version="1.11.0" />
     <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
   </ItemGroup>
 
