@@ -32,6 +32,6 @@ steps:
     azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
     workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)\PSAvroTools\publish.ps1'
+    ScriptPath: 'publish.ps1'
     ScriptArguments: '-key=123 -version=1.3.5'
     azurePowerShellVersion: 'LatestVersion'
