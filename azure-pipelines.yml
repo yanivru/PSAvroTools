@@ -29,7 +29,7 @@ steps:
 
 - task: AzurePowerShell@5
   inputs:
-    workingDirectory:'$(Build.SourcesDirectory)\PSAvroTools\' 
+    workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
     ScriptType: 'FilePath'
     ScriptPath: '$(Build.SourcesDirectory)\PSAvroTools\publish.ps1'
     ScriptArguments: '-key=123 -version=1.3.5'
