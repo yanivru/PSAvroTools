@@ -30,6 +30,6 @@ steps:
 - task: AzurePowerShell@5
   inputs:
     ScriptType: 'FilePath'
-    ScriptPath: 'PSAvroTools/PSAvroTools/publish.ps1'
+    ScriptPath: '$(System.DefaultWorkingDirectory)\PSAvroTools\PSAvroTools\publish.ps1'
     ScriptArguments: '-key=123 -version=1.3.5'
     azurePowerShellVersion: 'LatestVersion'
