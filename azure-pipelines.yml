@@ -31,5 +31,5 @@ steps:
   inputs:
     ScriptType: 'FilePath'
     ScriptPath: 'PSAvroTools/PSAvroTools/publish.ps1'
-    ScriptArguments: 'key=123,version=1.3.5'
+    ScriptArguments: '-key=123 -version=1.3.5'
     azurePowerShellVersion: 'LatestVersion'
