@@ -14,6 +14,13 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+- powershell: |
+    Write-Host "Using a global non-secret var mapped in the pipeline works: $env:NUGETAPIKEY.Substring(0, 5)" 
+    Write-Host "Using the mapped env var for this task works and is recommended: $env:NUGETAPIKEY.Length"
+    Write-Host "My secret $(nugetApiKey)"
+  env:
+    NUGETAPIKEY: $(nugetApiKey2)
+
 steps:
 - task: NuGetToolInstaller@1
 
@@ -26,12 +33,6 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- powershell: |
-    Write-Host "Using a global non-secret var mapped in the pipeline works: $env:NUGETAPIKEY.Substring(0, 5)" 
-    Write-Host "Using the mapped env var for this task works and is recommended: $env:NUGETAPIKEY.Length"
-  env:
-    NUGETAPIKEY: $(nugetApiKey2)
 
 - task: AzurePowerShell@5
   inputs:
