@@ -20,7 +20,7 @@ steps:
     Write-Host "Using the mapped env var for this task works and is recommended: $env:NUGETAPIKEY.Length"
     Write-Host "My secret $(nugetApiKey)"
   env:
-    NUGETAPIKEY: $(nugetApiKey2)
+    NUGETAPIKEY: $(nugetApiKey)
 
 - task: NuGetToolInstaller@1
 
