@@ -34,6 +34,6 @@ steps:
     ScriptType: 'FilePath'
     ScriptPath: 'PSAvroTools\publish.ps1'
     ScriptArguments: > # Use this to avoid newline characters in multiline string
-      -nugetApiKey "123"
+      -nugetApiKey "${nugetApiKey}"
       -version 1.3.5
     azurePowerShellVersion: 'LatestVersion'
