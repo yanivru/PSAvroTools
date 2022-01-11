@@ -27,6 +27,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- powershell: |
+    Write-Host "Using a global non-secret var mapped in the pipeline works: $env:NUGETAPIKEY.Substring(0, 5)" 
+    Write-Host "Using the mapped env var for this task works and is recommended: $env:NUGETAPIKEY.Length"
+  env:
+    NUGETAPIKEY: ${nugetApiKey}
+
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
