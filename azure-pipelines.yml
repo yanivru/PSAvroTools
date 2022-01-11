@@ -34,3 +34,5 @@ steps:
     ScriptType: 'FilePath'
     ScriptPath: 'PSAvroTools\publish.ps1'
     azurePowerShellVersion: 'LatestVersion'
+  env:
+    NUGETAPIKEY: ${nugetApiKey}
