@@ -34,12 +34,19 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
-    workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
-    ScriptType: 'FilePath'
-    ScriptPath: 'PSAvroTools\publish.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+- powershell: |
+    Write-Host "Using a global non-secret var mapped in the pipeline works: $env:NUGETAPIKEY.Substring(0, 5)" 
+    Write-Host "Using the mapped env var for this task works and is recommended: $env:NUGETAPIKEY.Length"
+    Write-Host "My secret $(nugetApiKey)"
   env:
-    NUGETAPIKEY: ${nugetApiKey}
+    NUGETAPIKEY: $(nugetApiKey)
+
+#- task: AzurePowerShell@5
+#  inputs:
+#    azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
+#    workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
+#    ScriptType: 'FilePath'
+#    ScriptPath: 'PSAvroTools\publish.ps1'
+#    azurePowerShellVersion: 'LatestVersion'
+#  env:
+#    NUGETAPIKEY: ${nugetApiKey}
