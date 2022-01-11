@@ -41,12 +41,12 @@ steps:
   env:
     NUGETAPIKEY: $(nugetApiKey)
 
-#- task: AzurePowerShell@5
-#  inputs:
-#    azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
-#    workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
-#    ScriptType: 'FilePath'
-#    ScriptPath: 'PSAvroTools\publish.ps1'
-#    azurePowerShellVersion: 'LatestVersion'
-#  env:
-#    NUGETAPIKEY: ${nugetApiKey}
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Main(0f20fa13-72d9-4772-87e4-6646d8ac0663)'
+    workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
+    ScriptType: 'FilePath'
+    ScriptPath: 'PSAvroTools\publish.ps1'
+    azurePowerShellVersion: 'LatestVersion'
+  env:
+    NUGETAPIKEY: ${nugetApiKey}
