@@ -5,7 +5,7 @@ Powershell Cmdlets to work with Apache.Avro files
 Install-Module AvroTools (run as admin)
 
 ## Basic usage
-Read-Avro -Path c:\weather.avro
+Read-Avro c:\weather.avro
 
     Result:
     station               time temp
@@ -17,13 +17,16 @@ Read-Avro -Path c:\weather.avro
     012650-99999 -655509600000   78
 
 ## Filtering
-Read-Avro -Path c:\weather.avro| where {$_.name -like "012*"}
+Read-Avro -Path c:\weather.avro | where {$_.name -like "012*"}
 
 ## Selecting first 10 rows
 Read-Avro -Path c:\weather.avro | select -first 10
 
 ## Selecting specific columns
 Read-Avro -Path c:\weather.avro | select station, temp
+
+## Export to CSV
+read-avro c:\weather.avro | Export-Csv -Path weather.csv
 
 ## Reading the schema
 (Read-AvroSchema -Path c:\weather.avro).ToString()
