@@ -26,7 +26,7 @@ Read-Avro -Path c:\weather.avro | select -first 10
 Read-Avro -Path c:\weather.avro | select station, temp
 
 ## Export to CSV
-read-avro c:\weather.avro | Export-Csv -Path weather.csv
+Read-avro c:\weather.avro | Export-Csv -Path weather.csv
 
 ## Reading the schema
 (Read-AvroSchema -Path c:\weather.avro).ToString()
