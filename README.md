@@ -30,3 +30,18 @@ Read-avro c:\weather.avro | Export-Csv -Path weather.csv
 
 ## Reading the schema
 (Read-AvroSchema -Path c:\weather.avro).ToString()
+
+## Writing Avro
+Writing Avro is currently limited to simple schemas.
+Write-Avro writes PSObjects to Avro file. The schema is infered from the first item.
+
+$myObject = [PSCustomObject]@{
+    Name     = 'Kevin'
+    Age = 1
+},
+[PSCustomObject]@{
+    Name     = 'Dunkun'
+    Age = 2
+}
+
+$myObject | Write-Avro -Path c:\temp\newAvro.avro -Verbose 
