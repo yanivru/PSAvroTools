@@ -12,7 +12,7 @@
 RootModule = 'PSAvroTools.dll'
 
 # Version number of this module.
-ModuleVersion = '1.3.8'
+ModuleVersion = '1.3.9'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -72,7 +72,7 @@ RequiredAssemblies = @("Avro.dll", "Newtonsoft.Json.dll", "System.CodeDom.dll")
 FunctionsToExport = @()
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = @('Read-Avro', 'Read-AvroSchema')
+CmdletsToExport = @('Read-Avro', 'Read-AvroSchema', 'Write-Avro')
 
 # Variables to export from this module
 VariablesToExport = '*'
@@ -107,7 +107,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Alpha version'
+        ReleaseNotes = 'Added Write-Avro CmdLet'
 
     } # End of PSData hashtable
 
