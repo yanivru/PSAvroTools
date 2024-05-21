@@ -35,7 +35,9 @@ namespace PSAvroTools
             var result = new PSObject();
             foreach (var field in x.Schema.Fields)
             {
-                var pSProperty = new PSNoteProperty(field.Name, x[field.Name]);
+                var value = x[field.Name] is GenericRecord gr ? CreatePSObject(gr) : x[field.Name];
+
+                var pSProperty = new PSNoteProperty(field.Name, value);
                 result.Properties.Add(pSProperty);
             }
 

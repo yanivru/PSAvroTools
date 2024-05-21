@@ -63,7 +63,8 @@ namespace PSAvroTools
             int i = 0;
             foreach (var property in input.Properties.Where(x => x.IsGettable))
             {
-                genericRecord.Add(i, property.Value);
+                var newValue = property.Value is PSObject pso ? ConvertToGenericRecord(pso) : property.Value;
+                genericRecord.Add(i, newValue);
                 i++;
             }
 
@@ -77,18 +78,25 @@ namespace PSAvroTools
             return DataFileWriter<GenericRecord>.OpenWriter(new GenericDatumWriter<GenericRecord>(_schema), resolvedPath);
         }
 
+        private int _schemaId = 0;
+
         private RecordSchema CreateSchema(PSObject input)
         {
             var properties = input.Properties.Where(x => x.IsGettable).Select((x, i) => CreateAvroPropertySchema(x, i));
-            var schema = RecordSchema.Create(SchemaName ?? "Schema", properties.ToList());
+            var schema = RecordSchema.Create(SchemaName ?? "Schema" + _schemaId++, properties.ToList());
             return schema;
         }
 
         private Field CreateAvroPropertySchema(PSPropertyInfo property, int position)
         {
-            if(!_dotNetTypesToAvroPrimitivesTypesMapping.ContainsKey(property.TypeNameOfValue))
+            if(property.Value is PSObject pso)
             {
-                throw new Exception($"Type {property.TypeNameOfValue} of property {property.Name} is not supported. Fields can only contain primitive types.");
+                return new Field(CreateSchema(pso), property.Name, position);
+            }
+
+            if (!_dotNetTypesToAvroPrimitivesTypesMapping.ContainsKey(property.TypeNameOfValue))
+            {
+                throw new Exception($"Type {property.TypeNameOfValue} of property {property.Name} is not supported {property.Value.GetType()}. Fields can only contain primitive types.");
             }
 
             return new Field(PrimitiveSchema.Create(_dotNetTypesToAvroPrimitivesTypesMapping[property.TypeNameOfValue]), property.Name, position);
