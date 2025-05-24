@@ -29,4 +29,6 @@ jobs:
       
     - name: Publish to Powershell gallery
       shell: pwsh
+      env:
+        NUGETAPIKEY: ${{ secrets.NugetApiKey }}
       run: ./PSAvroTools/publish.ps1
