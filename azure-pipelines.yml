@@ -30,4 +30,4 @@ steps:
     filePath: 'PSAvroTools\publish.ps1'
     workingDirectory: '$(Build.SourcesDirectory)\PSAvroTools\'
   env:
-    NUGETAPIKEY: $(nugetApiKey)
+    NUGETAPIKEY: ${{ secrets.NugetApiKey }}
