@@ -6,6 +6,6 @@ dotnet publish -c Release
 New-Item -Path '.\bin\Release\netstandard2.0\publish\AvroTools\' -ItemType Directory -Force
 copy .\bin\Release\netstandard2.0\publish\*.* .\bin\Release\netstandard2.0\publish\AvroTools\
 
-Publish-Module -Path .\bin\Release\netstandard2.0\publish\AvroTools -NuGetApiKey $env:NUGETAPIKEY
-
 dir .\bin\Release\netstandard2.0\publish\AvroTools\
+
+Publish-Module -Path .\bin\Release\netstandard2.0\publish\AvroTools -NuGetApiKey $env:NUGETAPIKEY
