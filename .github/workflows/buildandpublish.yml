@@ -32,5 +32,3 @@ jobs:
       env:
         NUGETAPIKEY: ${{ secrets.NugetApiKey }}
       run: ./PSAvroTools/publish.ps1
-    - name: show directory
-      run: dir .\bin\Release\netstandard2.0\publish\AvroTools\
