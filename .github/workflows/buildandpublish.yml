@@ -27,7 +27,8 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Integration Tests
-      run: ./PSAvroTools/IntegrationTests/Read-AvroFile.Tests.ps1
+      shell: pwsh
+      run: Invoke-Pester -Output Detailed ./PSAvroTools/IntegrationTests/Read-AvroFile.Tests.ps1 -PassThru
     - name: Publish to Powershell gallery
       shell: pwsh
       env:
