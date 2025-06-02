@@ -4,7 +4,7 @@
 
 Describe 'Read-Avro' {
     It 'Given a valid avro file, it lists all rows' {
-        $allPlanets = Read-Avro ./PSAvroTools/bin/Release/netstandard2.0/publish/AvroToolsweather.avro
+        $allPlanets = Read-Avro ./PSAvroTools/IntegrationTests/AvroToolsweather.avro
         $allPlanets.Count | Should -Be 5
     }
 }
