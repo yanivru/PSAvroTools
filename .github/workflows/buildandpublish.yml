@@ -23,7 +23,13 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet publish -c Release /p:DebugType=None /p:DebugSymbols=false
+    - name: Create Publish Folder
+      shell: pwsh
+      run: New-Item -Path './PSAvroTools/bin/Release/netstandard2.0/publish/AvroTools/' -ItemType Directory -Force
+    - name: Copy from release folder to publish folder
+      shell: pwsh
+      run: copy ./PSAvroTools/bin/Release/netstandard2.0/publish/*.* ./PSAvroTools/bin/Release/netstandard2.0/publish/AvroTools/
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Integration Tests
