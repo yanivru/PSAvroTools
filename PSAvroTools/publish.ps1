@@ -6,4 +6,4 @@ dotnet publish -c Release /p:DebugType=None /p:DebugSymbols=false
 New-Item -Path '.\PSAvroTools\bin\Release\netstandard2.0\publish\AvroTools\' -ItemType Directory -Force
 copy .\PSAvroTools\bin\Release\netstandard2.0\publish\*.* .\PSAvroTools\bin\Release\netstandard2.0\publish\AvroTools\
 
-Publish-Module -Path .\PSAvroTools\bin\Release\netstandard2.0\publish\AvroTools -NuGetApiKey aaa
+Publish-Module -Path .\PSAvroTools\bin\Release\netstandard2.0\publish\AvroTools -NuGetApiKey $env:NUGETAPIKEY
